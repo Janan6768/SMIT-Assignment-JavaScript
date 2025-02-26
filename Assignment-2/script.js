@@ -83,27 +83,56 @@
 // }
 
 //Exercise-7 
-let marks = parseInt(prompt("Enter Your Marks : "));
+// let marks = parseInt(prompt("Enter Your Marks : "));
 
-if(!isNaN(marks) && marks !== "") {
-    if(marks > 100) {
-        alert("Wrong Input! => Maximum Marks is 100, Please Try Again...");
-    }
-    else if (marks >= 90) {
-        alert(`Congratullations! marks ${marks} Your Grade is A`);
-    }
-    else if (marks >= 80) {
-        alert(`Congratullations! marks ${marks} Your Grade is B`);
-    }
-    else if (marks >= 70) {
-        alert(`Congratullations! marks ${marks} Your Grade is C`);
-    }
-    else if (marks >= 60) {
-        alert(`Congratullations! marks ${marks} Your Grade is D`);
-    }
-    else alert(`Fail! => Try Hard May be You are Lucky Next Time`);
-}
-else {
-        alert("Invalid input! Please enter a valid number.");
-    }
+// if(!isNaN(marks) && marks !== "") {
+//     if(marks > 100) {
+//         alert("Wrong Input! => Maximum Marks is 100, Please Try Again...");
+//     }
+//     else if (marks >= 90) {
+//         alert(`Congratullations! marks ${marks} Your Grade is A`);
+//     }
+//     else if (marks >= 80) {
+//         alert(`Congratullations! marks ${marks} Your Grade is B`);
+//     }
+//     else if (marks >= 70) {
+//         alert(`Congratullations! marks ${marks} Your Grade is C`);
+//     }
+//     else if (marks >= 60) {
+//         alert(`Congratullations! marks ${marks} Your Grade is D`);
+//     }
+//     else alert(`Fail! => Try Hard May be You are Lucky Next Time`);
+// }
+// else {
+//         alert("Invalid input! Please enter a valid number.");
+//     }
+
+//Logic building --> Start with Swapping
+
+// let a = 10, b = 20, c;
+// console.log(`Before Swapping : a = ${a} & b = ${b}`);
+// c=a;
+// a=b;
+// b=c;
+// console.log(`After Swapping : a = ${a} & b = ${b}`);
+
+//------>Swapping without Taking 3rd Variable
+// let d = 10, e = 30;
+// console.log(`Before Swapping : d = ${d} & e = ${e}`);
+
+// d = d + e;
+// e = d - e;
+// d = d - e;
+
+// console.log(`After Swapping : d = ${d} & e = ${e}`);
+
+//------>swapping with Bitwise operator.
+// let d = 10, e = 30;
+// console.log(`Before Swapping : d = ${d} & e = ${e}`);
+
+// d = d ^ e;
+// e = d ^ e;
+// d = d ^ e;
+
+// console.log(`After Swapping : d = ${d} & e = ${e}`);
 
