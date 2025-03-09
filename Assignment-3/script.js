@@ -88,9 +88,9 @@ var product = {
 var sum = 0;
 for(i=0; i<product.reviews.length; i++) {
     // console.log('Rating : ' + product.reviews[i].rating);
-    totalRating = sum += product.reviews[i].rating
+    sum += product.reviews[i].rating
 }
-// console.log('Total Rating : ' + totalRating);
+// console.log('Total Rating : ' + sum);
 
 var avrRating = sum/product.reviews.length;
 // console.log('Average Rating : ' + avrRating);
