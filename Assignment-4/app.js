@@ -167,9 +167,11 @@ console.log('------------------------------');
 // 2. List All Product Titles
 // solution
 function listAllProductTitle(products){
-  for(let i=0; i<products.length; i++) {
-    console.log('Title is : ', products[i].title);
-  }
+  // for(let i=0; i<products.length; i++) {
+  //   console.log('Title is : ', products[i].title);
+  // }
+  let titles = products.map(product => product.title);
+  console.log("Available Products:", titles.join(", "));
 }
 listAllProductTitle(products);
 console.log('------------------------------');
