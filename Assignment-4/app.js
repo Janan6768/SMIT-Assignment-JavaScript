@@ -203,5 +203,3 @@ function getTotalQuantities(products, productId) {
 let productId = parseInt(prompt('Get Total Quantity of a product by ID :'));
 getTotalQuantities(products,productId);
 console.log('------------------------------');
-
-
