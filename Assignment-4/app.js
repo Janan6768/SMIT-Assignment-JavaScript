@@ -1,8 +1,22 @@
 // Assignment-3 Questions but solve with Function...
 
-// Assignment-4 start from line No.44
+// Assignment-4 start from line No.60
 
 // Class Practice before Going for Assignment-4
+
+
+// calculator using arrow function
+// let cal = (x,y,op) => op(x,y);
+// let sum = (x,y) => x+y;
+// let sub = (x,y) => x-y;
+// let mul = (x,y) => x*y;
+// let divi = (x,y) => x/y;
+// let max = (x,y) => (x>y ? x:y)
+// let min = (x,y) => (x<y ? x:y)
+
+// let ans = cal(4,5,max);
+// console.log(ans);
+
 
 // ----------------------------------------
 //  function calculator(x,y,opt) {
@@ -153,55 +167,64 @@ var products = [
   
 // 1. Find a Product by ID
 // solution
-function findProductById(products, searchId) {
-  var product = products.find(p => p.id === searchId);
+// function findProductById(products, searchId) {
+//   var product = products.find(p => p.id === searchId);
 
-  if(product) console.log('Product Found : ',product);
-  else console.log('Product NOooT Found : ',product);
+//   if(product) console.log('Product Found : ',product);
+//   else console.log('Product NOooT Found : ',product);
   
-}
-var searchId = parseInt(prompt('Search by Product'));
-findProductById(products, searchId);
-console.log('------------------------------');
+// }
+// var searchId = parseInt(prompt('Search by Product'));
+// findProductById(products, searchId);
+// console.log('------------------------------');
 
 // 2. List All Product Titles
 // solution
-function listAllProductTitle(products){
-  // for(let i=0; i<products.length; i++) {
-  //   console.log('Title is : ', products[i].title);
-  // }
-  let titles = products.map(product => product.title);
-  console.log("Available Products:", titles.join(", "));
-}
-listAllProductTitle(products);
-console.log('------------------------------');
+// function listAllProductTitle(products){
+//   let titles = products.map(product => product.title);
+//   console.log("Available Products:", titles.join(", "));
+// }
+// listAllProductTitle(products);
+// console.log('------------------------------');
 
 // 3. Find Available Colors of a Product
 // solution
-function availableColors(products) {
-  var colors = products.flatMap(product => product.variations.map(variation => variation.color));
-  console.log('Availible Colors Are : ',[...new Set(colors)]);
+// function availableColors(products) {
+//   var colors = products.map(product => product.variations.map(variation => variation.color));
+//   console.log('Availible Colors Are : ',colors);
   
-}
-availableColors(products);
-console.log('------------------------------');
+// }
+// availableColors(products);
+// console.log('------------------------------');
 
 // 4. Get Total Quantity of a Product
 // solution
-function getTotalQuantities(products, productId) {
-  let product = products.find(p => p.id === productId);
-  if(!product) {
-    console.log(`Product with ID ${productId} not found.`);
-    return;
-  }
-  
-  let totalQuantity = 0;
-  
-  for(let i=0; i<product.variations.length; i++) {
-    totalQuantity += product.variations[i].quantity
-  }
-  console.log(`Total Quantity of "${product.title}": ${totalQuantity}`);
+// function getTotalQuantities(products, productId) {
+//   let product = products.find(p => p.id === productId);
+//   if(!product) {
+//     console.log(`Product with ID ${productId} not found.`);
+//     return;
+//   }
+
+//   let totalQuantity = 0;
+
+//   for(let i=0; i<product.variations.length; i++) {
+//     totalQuantity += product.variations[i].quantity
+//   }
+//   console.log(`Total Quantity of "${product.title}": ${totalQuantity}`);
+// }
+// let productId = parseInt(prompt('Get Total Quantity of a product by ID :'));
+// getTotalQuantities(products,productId);
+// console.log('------------------------------');
+
+// 5. Filter Products with Low Stock
+// solution
+function productWithLowStock(products) {
+  return products.map(product => ({
+    title : product.title,
+    lowStockVariation : product.variations.filter(variation => variation.quantity < 2)
+  }))
+  .filter(product => product.lowStockVariation.length > 0 )
 }
-let productId = parseInt(prompt('Get Total Quantity of a product by ID :'));
-getTotalQuantities(products,productId);
+console.log(productWithLowStock(products));
 console.log('------------------------------');
