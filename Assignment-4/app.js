@@ -338,12 +338,13 @@ var products = [
   },
 ];
 
+
 // 1. Solution
 const producTitles = (products) => {
-  let product = products.map(p => p.title);
-  return product;
+  let title = products.map(p => p.title);
+  return title;
 }
-console.log(producTitles(products));
+// console.log(producTitles(products));
 
 // 2. Solution
 const productsVariationWithBlack = (products) => {
@@ -351,13 +352,18 @@ const productsVariationWithBlack = (products) => {
     v.color === 'black').length > 0);
   return product
 }
-console.log(productsVariationWithBlack(products));
+// console.log(productsVariationWithBlack(products));
 
 // 3. Solution
 const totalStockOfAllProducts = (products) => {
-  let product = products.reduce((sum, p) => 
-    sum + p.variations.reduce((total,v) =>
-       total + v.variations,0),0);
-  return product
+  const totalStock = products.reduce((sum, p) => 
+    sum + p.variations.reduce((total, v) => 
+      total + v.quantity, 0), 0
+);
+return totalStock
 }
-console.log(totalStockOfAllProducts(products));
+// console.log(totalStockOfAllProducts(products));
+
+// 4.solution
+
+
