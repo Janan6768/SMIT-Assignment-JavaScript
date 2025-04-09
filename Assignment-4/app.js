@@ -312,7 +312,7 @@ var products = [
     id: 103,
     title: "Bike",
     variations: [
-      { id: 1, color: "black", price: 55000, quantity: 5 },
+      { id: 1, color: "black", price: 55000, quantity: 2 },
       { id: 2, color: "red", price: 50000, quantity: 1 },
     ],
     reviews: [
@@ -349,21 +349,102 @@ const producTitles = (products) => {
 // 2. Solution
 const productsVariationWithBlack = (products) => {
   let product = products.filter(p => p.variations.filter(v => 
-    v.color === 'black').length > 0);
+    v.color === 'black').length);
   return product
 }
 // console.log(productsVariationWithBlack(products));
 
 // 3. Solution
-const totalStockOfAllProducts = (products) => {
+const totalStockOfAllProucts = (products) => {
   const totalStock = products.reduce((sum, p) => 
     sum + p.variations.reduce((total, v) => 
-      total + v.quantity, 0), 0
-);
+    total + v.quantity, 0), 0);
 return totalStock
 }
 // console.log(totalStockOfAllProducts(products));
 
+// 3.-------------------------------------------------------
+// let product = products.reduce((prev , curr) => {
+// let totalQuantity = curr.variations.reduce((prev2 , curr2) => prev2 + curr2.quantity , 0)
+// return totalQuantity + prev;
+// } , 0)
+// console.log(product);
+
 // 4.solution
+const averageRatingOfEachProduct = (products) => {
+  const approvedRewies = products.map(p => {
+    const filterProduct = p.reviews.filter(r => r.status)
+    const totalRewies = filterProduct.reduce((prev,curr) => (prev + curr.rating),0)
+    const avgerage = totalRewies / filterProduct.length
+    const result = {
+      Title : p.title,
+      AverageApprovedRewies : avgerage
+    }
+    return result
+  })
+  return approvedRewies
+}
+// console.log(averageRatingOfEachProduct(products));
+    
+// 4. without Function---------------------------------------------
+let product = products.map(p => {
+  let filteredProduct = p.reviews.filter(r => r.status);
+  let totalReviews = filteredProduct.reduce((prev , curr) => (prev + curr.rating) , 0);
+  let averageReviews = totalReviews / filteredProduct.length;
+  let result = {
+    title : p.title,
+    averageRating : averageReviews
+  };
+  return result
+})
+// console.log(product)
 
+// 5.solution
+const rewiesWithRatingOfFive = (products) => {
+  return products.filter(p => p.reviews.some(r => r.rating >= 5.0));
+}
+console.log(rewiesWithRatingOfFive(products));
 
+// 6.solution
+const varaitionsWithProductName = (products) => {
+  const product = products.map(p => ({
+    title : p.title,
+    variations : p.variations.map(v => ({
+      color : v.color,
+      price : v.price,
+      quantity : v.quantity
+    }))
+  }))
+  return product
+}
+// console.log(varaitionsWithProductName(products));
+
+// 7.solution
+const totalRevenueOfAllItems = (products) => {
+  const product = products.reduce((prev,curr) => {
+  const totalRevenue = curr.variations.reduce((prev2,curr2) => {
+    return prev2 + (curr2.price * curr2.quantity)
+  },0)
+  return prev + totalRevenue
+},0)
+return product
+}
+// console.log(totalRevenueOfAllItems(products));
+
+// 8. solution
+const moreThenFiveItemsInVariation = (products) => {
+  return products.filter(p => p.variations.some(v => v.quantity >= 5))
+}
+console.log(moreThenFiveItemsInVariation(products));
+
+// 9. solution
+const totalVariationAndTotalRewies = () => {
+  return products.map(p => ({
+    Title : p.title,
+    TotalVariation : p.variations.length,
+    TotalRewies : p.reviews.length
+  }))
+}
+// console.log(totalVariationAndTotalRewies(products));
+
+// 10.Solution
