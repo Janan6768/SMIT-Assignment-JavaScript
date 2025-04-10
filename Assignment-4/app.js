@@ -403,7 +403,7 @@ let product = products.map(p => {
 const rewiesWithRatingOfFive = (products) => {
   return products.filter(p => p.reviews.some(r => r.rating >= 5.0));
 }
-console.log(rewiesWithRatingOfFive(products));
+// console.log(rewiesWithRatingOfFive(products));
 
 // 6.solution
 const varaitionsWithProductName = (products) => {
@@ -435,7 +435,7 @@ return product
 const moreThenFiveItemsInVariation = (products) => {
   return products.filter(p => p.variations.some(v => v.quantity >= 5))
 }
-console.log(moreThenFiveItemsInVariation(products));
+// console.log(moreThenFiveItemsInVariation(products));
 
 // 9. solution
 const totalVariationAndTotalRewies = () => {
@@ -448,3 +448,5 @@ const totalVariationAndTotalRewies = () => {
 // console.log(totalVariationAndTotalRewies(products));
 
 // 10.Solution
+
+
